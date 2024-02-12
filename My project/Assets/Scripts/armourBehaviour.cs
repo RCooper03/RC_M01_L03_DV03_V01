@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class armourBehaviour : MonoBehaviour
 {
+    public gameBehaviour gameManager;
+
+    private void Start()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<gameBehaviour>();
+    }
     // 1
     private void OnCollisionEnter(Collision collision)
     {
@@ -15,6 +21,8 @@ public class armourBehaviour : MonoBehaviour
 
             // 4
             Debug.Log("You picked up armour.");
+
+            gameManager.Items += 1;
         }
     }
 
